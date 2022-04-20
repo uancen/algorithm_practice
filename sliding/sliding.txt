@@ -1,0 +1,27 @@
+// O(n)
+void sliding(string s, string t)
+{
+    unordered_map<char,int> need,window;
+    for(char c:t) need[c]++;
+    int i=0,j=0;
+    int v=0;
+    int n=s.size();
+    while(j<n)
+    {
+        // 1.增大窗口
+        char c =s[j];
+        j++;
+        window.add(q[j]);
+        // debug...
+        // 2.判断左侧窗口是否需要收缩，缩小窗口
+        while(window needs shrink)
+        {
+            char d=s[i];
+            i++;
+            window.remove(q[i]);
+        }
+    }
+}
+
+题目：
+76 最小覆盖子串
