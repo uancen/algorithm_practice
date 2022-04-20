@@ -5,6 +5,7 @@
         "queue": "cpp",
         "cstdio": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cstdlib": "cpp"
     }
 }
