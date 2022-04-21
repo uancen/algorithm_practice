@@ -32,8 +32,9 @@ public:
 
 int main()
 {
-    vector<int> a{1,1,2};
+    vector<int> a{0,0,1,1,1,2,2,3,3,4};
     Solution s1;
     int res=s1.removeDuplicates(a);
-    printf("%d",res);
+    printf("%d\n",res);
+    for(int i:a) printf("%d",i);
 }

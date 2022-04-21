@@ -7,12 +7,12 @@
 #include <queue>
 #include <unordered_map>
 using namespace std;
+
 // 给你一个字符串 s 、一个字符串 t 
 // 返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 ""
 
 // 输入：s = "ADOBECODEBANC", t = "ABC"
 // 输出："BANC"
-
 // 输入：s = "a", t = "a"
 // 输出："a"
 
@@ -29,10 +29,11 @@ public:
     string minWindow(string s, string t) {
         // 用哈希表记录窗口中的字符（w）和需要的字符（n）
         unordered_map<char,int> n,w;
-        for(char c : t) n[c]++;
+        for(char c:t) n[c]++;
 
         int i=0;
         int j=0;
+        // VERIFY
         int v=0;
 
         int l=0;int len=INT_MAX;
@@ -46,6 +47,7 @@ public:
                 w[c]++;
                 if(w[c]==n[c]) v++;
             }
+            // 缩小窗口
             while(v==n.size())
             {
                 if(j-i<len)
@@ -70,5 +72,8 @@ public:
 
 int main()
 {
-
+    string s("ADOBECODEBANC");
+    string t("ABC");
+    Solution s1;
+    string res=s1.minWindow(s,t);
 }

@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 // "aewfafwafjlwajflwajflwafj"
@@ -12,7 +13,16 @@ public:
     string findLongestWord(string s, vector<string>& dictionary) {
         int n=s.size();
  
-        string res("");
+        // string res("");
+        sort(dictionary.begin(), 
+            dictionary.end(), 
+            [&](string &a, string &b) 
+            {
+                if(a.size() == b.size()) return a < b;
+                return a.size() > b.size();
+            }
+        );
+
         for(string p:dictionary)
         {
             int i=0,j=0;
@@ -22,10 +32,11 @@ public:
                 if(s[i]==p[j]) {i++;j++;continue;}
                 else {i++;}  
             }
-            if(j==m&&p.size()>res.size()) res=p;
-            if(p.size()==res.size()&&p<res) res=p;
+            if(j==m) return p;
+            // if(j==m&&p.size()>res.size()) res=p;
+            // if(j==m&&p.size()==res.size()&&p<res) res=p;
         }
-        return res;
+        return "";
     }
 };
 
